@@ -5,16 +5,15 @@ require_relative './space'
 
 class Sorter
 
-	attr_accessor :commadata, :pipedata, :spacedata
+	attr_accessor :data, :commadata, :pipedata, :spacedata
 
 	def initialize(commadata)
 		@commadata = commadata
 	end
 
 	def sort_by_dob_ascending
-		# self.dob.sort
 		self.commadata.each do |person_object|
-
+			person_object.dob.sort_by
 		end
 	end
 
