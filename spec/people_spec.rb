@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'people'
 
-describe 'Person' do
+describe People do
 
 	before do
-		@person = Person.new(last_name: '', first_name: '', gender: '', color: '', dob: '')
+		@person = People.new
 	end
 
 	subject { @person }
@@ -13,8 +13,4 @@ describe 'Person' do
   it { should respond_to(:gender) }
   it { should respond_to(:color) }
   it { should respond_to(:dob) }
-	
-	it "instantiates a new Person object" do
-		new_user = Person.create!(first_name: "Andy", last_name: "Lindeman")
-	end
 end

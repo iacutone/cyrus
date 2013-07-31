@@ -1,6 +1,5 @@
-require 'spec_helper'
+require 'data'
 
-	describe 'CommaData' do
-		
-	end
+describe CommaData do
+	
 end
