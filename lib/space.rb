@@ -1,4 +1,3 @@
-require 'pry'
 require_relative './people'
 
 class SpaceData
