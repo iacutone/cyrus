@@ -1,4 +1,4 @@
-[****Cyrus Code Test****](http://www.cyrusinnovation.com/code-test-ruby/)
+[Cyrus Code Test](http://www.cyrusinnovation.com/code-test-ruby/)
   
 
 In order to run the code:
