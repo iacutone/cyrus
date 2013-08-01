@@ -11,14 +11,14 @@ class Sorter
 
 	def self.sort_by_dob_ascending(data)
 		data.data.sort do |a, b|
-			a.dob <=> b.dob
+			[a.dob] <=> [b.dob]
+			binding.pry
 		end
 	end
 
-	def sort_by_last_name_descending(data)
-		data.data.sort do |a, b|
-			a.last_name <=> b.last_name
-		end
+	def self.sort_by_last_name_descending(data)
+		reverser = data.data.sort_by(&:last_name)
+		reverser.reverse
 	end
 
 end

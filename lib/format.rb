@@ -1,23 +1,12 @@
 class Format
 
-	# def initialize
-	# 	@people = []
-	# end
-
 	@array = []
 
 	def self.format_for_output(data)
 		data.each do |person|
-			@array << person.last_name
-			@array << person.first_name
-			@array << person.gender
-			@array << person.dob
-			@array << person.color
-			@array.to_s.gsub(',', ' ')
-			binding.pry
+			puts person.last_name + ' ' + person.first_name + ' ' + person.gender + ' ' + person.dob + ' ' + person.color
 		end
 
 	end
-
 
 end
