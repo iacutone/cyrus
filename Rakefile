@@ -1,20 +1,22 @@
-require './lib/comma'
-require './lib/pipe'
-require './lib/space'
+require './lib/merger'
 require './lib/sorter'
+require './lib/format'
 
 task :render_people do
 
-  commadata = CommaData.new('data/comma.txt')
-  pipedata = PipeData.new('data/pipe.txt')
-  spacedata = SpaceData.new('data/space.txt')
+	all_people = Merger.new
+  all_people.merge_data
 
-  commadata.parse_file
-  pipedata.parse_file
-  spacedata.parse_file
+  puts "Output 1:"
+  x = Sorter.sort_by_gender_then_last_name(all_people)
+  Format.format_for_output(x)
+  
+  # puts "\nOutput 2:"
+  # x = Sorter.sort_by_dob_ascending(all_people)
+  # puts Format.new(x)
 
-	sortable_data = Sorter.new(commadata, pipedata, spacedata)
-  puts "Output 3"
-  pp sortable_data.sort_by_last_name_descending
+  # puts "\nOutput 3:"
+  # all_people.sort_by_last_name_descending
+  # puts z.format_for_output
 
 end

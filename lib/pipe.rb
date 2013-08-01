@@ -26,4 +26,5 @@ class PipeData
 			self.data << person
 		end
 	end
+	
 end

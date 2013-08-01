@@ -1,5 +1,3 @@
-require 'date'
-
 class People 
 	attr_accessor :first_name, :middle_initial, :last_name, :gender, :color, :dob
 
@@ -18,4 +16,5 @@ class People
 		standard_date = Date.new(date[2], date[0], date[1])
 		self.dob = standard_date.strftime("%m/%d/%Y")
 	end
+	
 end

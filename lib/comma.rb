@@ -26,6 +26,7 @@ class CommaData
 			self.data << person
 		end
 	end
+	
 end
 
 
