@@ -1,6 +1,5 @@
 require_relative './people'
 
-
 class CommaData
 
 	attr_accessor :data, :file

@@ -10,7 +10,7 @@ class SpaceData
 	end
 
 	def parse_file
-		infile = File.new('data/space.txt', 'r')
+		infile = File.new(self.file, 'r')
 		infile.each do |line|
 			items = line.strip.split(' ')
 			person = People.new

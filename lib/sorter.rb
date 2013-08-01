@@ -1,5 +1,5 @@
 require './lib/merger'
-
+require 'pry'
 class Sorter
 
 	def self.sort_by_gender_then_last_name(data_sort)
@@ -10,8 +10,9 @@ class Sorter
 
 	def self.sort_by_dob_ascending(data_sort)
 		data_sort.data.sort do |a, b|
-			[a.dob] <=> [b.dob]
+			a.dob[-4..-1] <=> b.dob[-4..-1]
 		end
+		# data_sort.data.map(&:dob.to_i)
 	end
 
 	def self.sort_by_last_name_descending(data_sort)
