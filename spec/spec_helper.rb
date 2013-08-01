@@ -1,1 +1,0 @@
-Dir[File.dirname(__FILE__) + '/../spec/*.rb'].each {|file| require file }
