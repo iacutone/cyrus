@@ -1,5 +1,5 @@
 require './lib/merger'
-require 'pry'
+
 class Sorter
 
 	def self.sort_by_gender_then_last_name(data_sort)
