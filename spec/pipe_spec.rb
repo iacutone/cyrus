@@ -1,1 +1,1 @@
-pipe_spec.rb
+require 'pipe'

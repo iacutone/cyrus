@@ -1,1 +1,1 @@
-space_spec.rb
+require 'space'

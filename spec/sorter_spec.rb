@@ -1,1 +1,1 @@
-sorter_spec.rb
+require 'sorter'
