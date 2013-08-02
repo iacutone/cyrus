@@ -2,14 +2,17 @@ require 'comma'
 
 describe CommaData do
 
-	before do
-		@file = File.new(self.file, 'r')
-	end
-	
-	describe "#parse_file" do
-		it "should open a the comma data file" do 
+	let(:comma) { FactoryGirl.create(:comma) }
 
-		end
-		it "should parse the comma data file"
+	it "should create a new instance of CommaData" do 
+		@comma = CommaData.new(:comma)
+		comma.should be_an_instance_of CommaData
 	end
+
+	describe "#parse_file" do
+		it 'should parse People objects'
+			person = People.new
+			person.last_name.should == @comma.last_name
+	end
+
 end

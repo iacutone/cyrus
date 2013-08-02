@@ -1,6 +1,6 @@
-require_relative './comma'
-require_relative './pipe'
-require_relative './space'
+require_relative './comma_data'
+require_relative './pipe_data'
+require_relative './space_data'
 
 class Merger
 
