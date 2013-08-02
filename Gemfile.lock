@@ -60,7 +60,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  factory_girl
+  factory_girl (~> 4.0)
   guard-rspec
   rake
   rspec
