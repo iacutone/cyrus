@@ -1,7 +1,6 @@
-require 'space_data'
-require 'unit/test'
+require 'pipe_data'
 
-describe SpaceData do
+describe PipeData do
 
 	describe File do
 

@@ -1,56 +1,64 @@
-require 'comma_data'
-# require_relative './factories'
-
+require_relative './factories'
 require 'factory_girl'
+require 'comma_data'
 
-FactoryGirl.define do
-  factory :user do
-    name 'John Doe'
-    date_of_birth { 21.years.ago }
-  end
-end
-
-user = FactoryGirl.build(:user, first_name: "Joe")
-user.first_name.should == "Joe"
 
 describe CommaData do
 
 	describe File do
 
-		context "when instantiated, should create a file object"
+		it "should create a new instance of CommaData" do 
+			infile = File.new('spec/fixtures/comma.txt')
+			infile.should be_an_instance_of File
+		end
 
-			it "should create a new instance of CommaData" do 
-				infile = File.new('data/comma.txt')
-				infile.should be_an_instance_of File
-			end
 	end
 
 	describe People do
 
-		# FactoryGirl.build(:comma) do |comma|
-		# 	comma.last_name.should == "Abercrombie"
-		# end
+		before do
+	    @person = People.new
+	  end
 
+	  subject { @person }
 
-		# before do
-  #       lib_obj = [
-  #           People.new("JavaScript: The Good Parts", "Douglas Crockford", :development),
-  #           People.new("Designing with Web Standards", "Jeffrey Zeldman", :design),
-  #           People.new("Don't Make me Think", "Steve Krug", :usability)
-  #       ]
-  #    end
+    it { should respond_to(:last_name) }
+    it { should respond_to(:first_name) }
+    it { should respond_to(:gender) }
+    it { should respond_to(:color) }
+    it { should respond_to(:dob) } 
 
-		# infile = File.new('data/comma.txt')
+	# 	describe "when last_name is not present" do
+	#     before { @person.last_name = " " }
+	#     it { should_not be_nil }
+ #  	end
 
-		# infile.each do |line|
-		# 	items = line.strip.split(",")
-		# 	person = People.new
-		# 	items[0].strip.should == "Abercrombie"
-			# items[1].strip.should == "Neil"
-			# items[2].strip.should == "Male"
-			# items[3].strip.should == "Tan"
-			# items[4].strip.should == "2/13/1943"
-		# end
-	end
+ #  	describe "when first_name is not present" do
+	#     before { @person.first_name = " " }
+	#     it { should_not be_nil }
+ #  	end
+
+ #  	describe "when gender is not present" do
+	#     before { @person.gender = " " }
+	#     it { should_not be_nil }
+ #  	end
+
+ #  	describe "when color is not present" do
+	#     before { @person.color = " " }
+	#     it { should_not be_nil }
+ #  	end
+
+ #  	describe "when dob is not present" do
+	#     before { @person.dob = " " }
+	#     it { should_not be_nil }
+ #  	end
+	# end
+
+	describe "#parse_file" do
+
+	 	let(:file_path) { "spec/fixtures/comma.txt" }
+	  let(:raw_data) { File.new(file_path, 'r') }
+	  let(:comma_data) { CommaData.new(file_path) }
+	end	
 
 end
