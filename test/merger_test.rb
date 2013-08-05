@@ -1,9 +1,6 @@
 require 'test/unit'
 require 'shoulda'
 require_relative '../lib/people'
-require_relative '../lib/comma_data'
-require_relative '../lib/pipe_data'
-require_relative '../lib/space_data'
 
 
 class MergerTest < Test::Unit::TestCase
@@ -23,7 +20,6 @@ class MergerTest < Test::Unit::TestCase
 			person.standardize_gender
 			person.color = items[4].strip
 			person.dob = items[5].strip
-			person.standardize_dob
 			@pipe_holder << person
 		end
 
@@ -32,7 +28,7 @@ class MergerTest < Test::Unit::TestCase
 		assert(@pipe_holder.first.first_name == "Steve")
 		assert(@pipe_holder.first.gender == "Male")
 		assert(@pipe_holder.first.color == "Red")
-		assert(@pipe_holder.first.dob == "03/03/1985")
+		assert(@pipe_holder.first.dob == "3-3-1985")
 	end
 
 	should 'correctly parse space file' do
@@ -49,7 +45,6 @@ class MergerTest < Test::Unit::TestCase
 			person.gender = items[3].strip
 			person.standardize_gender
 			person.dob = items[4].strip
-			person.standardize_dob
 			person.color = items[5].strip
 			@space_holder << person
 		end
@@ -59,7 +54,7 @@ class MergerTest < Test::Unit::TestCase
 		assert(@space_holder.first.first_name == "Anna")
 		assert(@space_holder.first.gender == "Female")
 		assert(@space_holder.first.color == "Red")
-		assert(@space_holder.first.dob == "06/03/1975")
+		assert(@space_holder.first.dob == "6-3-1975")
 	end
 
 	should 'correctly parse comma file' do
