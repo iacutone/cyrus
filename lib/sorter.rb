@@ -12,7 +12,6 @@ class Sorter
 		data_sort.data.sort do |a, b|
 			a.dob[-4..-1] <=> b.dob[-4..-1]
 		end
-		# data_sort.data.map(&:dob.to_i)
 	end
 
 	def self.sort_by_last_name_descending(data_sort)

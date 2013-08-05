@@ -1,15 +1,16 @@
-require 'space_data'
-require 'unit/test'
+require 'test/unit'
+require 'shoulda'
 
-describe SpaceData do
+class SpaceDataTest < Test::Unit::TestCase
+	
+	should "open the file" do 
+  	file = File.new("test/fixtures/space.txt", 'r')
+  	assert file
+  end
 
-	describe File do
+  should "return elements of the file object" do 
+  	file = File.new("test/fixtures/space.txt", 'r')
+  	assert_equal("Kournikova Anna F F 6-3-1975 Red\n", file.first)
+  end
 
-		context "when instantiated, should create a file object"
-
-			it "should create a new instance of SpaceData" do 
-				infile = File.new('data/space.txt')
-				infile.should be_an_instance_of File
-			end
-		end
-	end
+end

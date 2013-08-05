@@ -1,14 +1,16 @@
-require 'pipe_data'
+require 'test/unit'
+require 'shoulda'
 
-describe PipeData do
+class PipeDataTest < Test::Unit::TestCase
+	
+	should "open the file" do 
+  	file = File.new("test/fixtures/pipe.txt", 'r')
+  	assert file
+  end
 
-	describe File do
+  should "return elements of the file object" do 
+  	file = File.new("test/fixtures/pipe.txt", 'r')
+  	assert_equal("Smith | Steve | D | M | Red | 3-3-1985\n", file.first)
+  end
 
-		context "when instantiated, should create a file object"
-
-			it "should create a new instance of SpaceData" do 
-				infile = File.new('data/space.txt')
-				infile.should be_an_instance_of File
-			end
-		end
-	end
+end

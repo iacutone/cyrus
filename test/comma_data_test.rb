@@ -1,45 +1,16 @@
 require 'test/unit'
-require 'comma_data'
+require 'shoulda'
 
-
-describe CommaData do
-
-		describe "#initialize" do
-
-	 	let(:file_path) { "spec/fixtures/comma.txt" }
-	  let(:raw_data) { File.new(file_path, 'r') }
-	  let(:comma_data) { CommaData.new(file_path) }
-	end	
-
-	describe File do
-
-		it "should create a new instance of CommaData" do 
-			infile = File.new('spec/fixtures/comma.txt')
-			infile.should be_an_instance_of File
-		end
-
-	end
-
-	describe People do
-
-		before do
-	    @person = People.new
-	  end
-
-	  subject { @person }
-
-    it { should respond_to(:last_name) }
-    it { should respond_to(:first_name) }
-    it { should respond_to(:gender) }
-    it { should respond_to(:color) }
-    it { should respond_to(:dob) } 
+class CommaDataTest < Test::Unit::TestCase
+	
+	should "open the file" do 
+  	file = File.new("test/fixtures/comma.txt", 'r')
+  	assert file
   end
 
-	describe "#parse_file" do
-
-	 	let(:file_path) { "spec/fixtures/comma.txt" }
-	  let(:raw_data) { File.new(file_path, 'r') }
-	  let(:comma_data) { CommaData.new(file_path) }
-	end	
+  should "return elements of the file object" do 
+  	file = File.new("test/fixtures/comma.txt", 'r')
+  	assert_equal("Abercrombie, Neil, Male, Tan, 2/13/1943\n", file.first)
+  end
 
 end

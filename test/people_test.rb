@@ -1,17 +1,21 @@
-require 'people'
+require 'test/unit'
+require 'shoulda'
+require_relative '../lib/people'
 
-describe People do
-
-	before do
-		@person = People.new
+class PeopleTest < Test::Unit::TestCase
+	
+	should 'create a new person' do
+	  person = People.new
+	  assert person
 	end
 
-	subject { @person }
+	should 'have person object attributes' do
+	  person = People.new
+	  assert_nil(person.last_name)
+	  assert_nil(person.first_name)
+	  assert_nil(person.dob)
+	  assert_nil(person.color)
+	  assert_nil(person.middle_initial)
+	end
 
-	it { should respond_to(:last_name) }
-  it { should respond_to(:first_name) }
-  it { should respond_to(:middle_name) }
-  it { should respond_to(:gender) }
-  it { should respond_to(:color) }
-  it { should respond_to(:dob) }
 end
